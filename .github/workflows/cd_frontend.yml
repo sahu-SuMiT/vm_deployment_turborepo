@@ -2,7 +2,7 @@
 #Push the docker image to docker hub
 #SSH to the vm and start the new image
 
-name: Build and Push Docker Image web
+name: Build and Push Docker Image frontend
 
 on:
   push:
@@ -30,8 +30,8 @@ jobs:
         with:
           context: .
           file: ./docker/Dockerfile.frontend
-          build-args:
-            - DATABASE_URL: ${{secrets.PROD_DATABASE_URL}}
+          build-args: |
+            DATABASE_URL=${{ secrets.PROD_DATABASE_URL }}
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-backend:latest
