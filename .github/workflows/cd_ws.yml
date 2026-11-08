@@ -34,3 +34,9 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-ws:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-ws:${{ github.sha }}
+      - name: Deploy to the VM
+        uses: |
+          echo: "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
+          mkdir -p /home/runner/.ssh
+          chmod 700 /home/runner/ssh_key
+          ssh -o StringHostChecking=no -i ~/ssh_key ubuntu-vm-3-todo@4.252.1.59 -t "docker stop todo-app-backend && docker run --name todo-app-backend -d -p 3000:3000 sumittim/todo-app-backend:${{github.sha}}"
