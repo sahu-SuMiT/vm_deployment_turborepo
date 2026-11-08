@@ -39,4 +39,4 @@ jobs:
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
           mkdir -p /home/runner/.ssh
           chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu-vm-3-todo@4.252.1.59 -t "sudo docker stop todo-app-backend || true && sudo docker rm todo-app-backend || true && sudo docker run --name todo-app-backend -d -p 3000:3000 -e DATABASE_URL="postgresql://neondb_owner:npg_xMNsITWR7k6H@ep-muddy-sky-bdfyw9wa-pooler.c-8.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require" sumittim/todo-app-backend:${{github.sha}}" 
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu-vm-3-todo@4.252.1.59 -t "sudo docker stop todo-app-backend || true && sudo docker rm todo-app-backend || true && sudo docker run --name todo-app-backend -d -p 3000:3000 -e DATABASE_URL='postgresql://neondb_owner:npg_xMNsITWR7k6H@ep-muddy-sky-bdfyw9wa-pooler.c-8.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require' sumittim/todo-app-backend:${{github.sha}}" 
