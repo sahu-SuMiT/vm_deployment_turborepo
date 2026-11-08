@@ -15,4 +15,4 @@ RUN bun run db:generate
 
 EXPOSE 8081
 
-CMD ["bun","run","start:websocket"]
+CMD ["bun","run","start:ws"]
