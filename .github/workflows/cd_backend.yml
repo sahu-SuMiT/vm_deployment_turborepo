@@ -35,7 +35,7 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-backend:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-backend:${{ github.sha }}
       - name: Deploy to the VM
-        uses: |
+        run: |
           echo: "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
           mkdir -p /home/runner/.ssh
           chmod 700 /home/runner/ssh_key
