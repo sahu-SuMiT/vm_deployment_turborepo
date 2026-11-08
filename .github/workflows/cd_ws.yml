@@ -32,5 +32,5 @@ jobs:
           file: ./docker/Dockerfile.ws
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-backend:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-backend:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-ws:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-ws:${{ github.sha }}

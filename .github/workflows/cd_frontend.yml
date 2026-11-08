@@ -34,5 +34,5 @@ jobs:
             DATABASE_URL=${{ secrets.PROD_DATABASE_URL }}
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-backend:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-backend:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-frontend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/todo-app-frontend:${{ github.sha }}
